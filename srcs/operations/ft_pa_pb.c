@@ -44,7 +44,7 @@ void ft_push(t_stack *src, t_stack *dst)
 {
 	if (!src || !dst || src->cur_size == 0)
 		return ;
-	ft_move_back_array(dst, dst->cur_size);
+	ft_move_back_array(dst, dst->cur_size); // Change to ft_memmove
 	dst->tab[0] = src->tab[0];
 	dst->cur_size++;
 	ft_move_top_array(src, src->cur_size);
