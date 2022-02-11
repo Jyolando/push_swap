@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:22:24 by                   #+#    #+#             */
-/*   Updated: 2022/01/14 22:04:58 by                  ###   ########.fr       */
+/*   Updated: 2022/02/02 10:41:43 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,24 @@ int main(int c, char **v)
 	t_stack b;
 	t_stack init;
 
+
 	init.max_size = c - 1;
 	if (init.max_size < 1)
 		ft_error();
 	if (!ft_check_args(&a, &b, &init, v))
 		return (0);
+	if (ft_arr_sorted(a) && ft_arr_ready(a))
+		return (0);
+	else if (a.cur_size <= 6) {
+		a.info.min = find_min(a);
+		minisort(&a, &b);
+	} else {
+		full_sort(&a, &b);
+	}
+	// int i = 0;
 
-	int i = 0;
-
-	while (i < a.max_size)
-		printf("%d | ", a.tab[i++]);
+	// while (i < a.max_size)
+	// 	printf("%d | ", a.tab[i++]);
 
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stacks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:41:01 by                   #+#    #+#             */
-/*   Updated: 2022/01/14 21:49:29 by                  ###   ########.fr       */
+/*   Updated: 2022/01/31 18:43:11 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static int ft_gen_a(t_stack *a, int *arr, int size)
 	while (i++ < size)
 		a->tab[i] = arr[i];
 	a->max_size = a->cur_size = size;
+	a->info.stack_name = 'a';
 	return (1);
 }
 
@@ -38,6 +39,7 @@ static int ft_gen_b(t_stack *b, int size)
 		b->tab[i++] = 0;
 	b->max_size = size;
 	b->cur_size = 0;
+	b->info.stack_name = 'b';
 	return (1);
 }
 

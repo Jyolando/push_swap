@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   find_min.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 12:12:19 by jyolando          #+#    #+#             */
-/*   Updated: 2021/09/08 12:17:56 by jyolando         ###   ########.fr       */
+/*   Created: 2022/02/01 15:04:21 by jyolando          #+#    #+#             */
+/*   Updated: 2022/02/01 15:26:07 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *nlist)
+int find_min(t_stack s)
 {
-	nlist->next = *lst;
-	*lst = nlist;
+	int min;
+	int i;
+
+	min = s.tab[0];
+	i = 0;
+	while (i < s.cur_size - 1)
+	{
+		if (s.tab[i] > s.tab[i + 1] && min > s.tab[i + 1])
+			min = s.tab[i + 1];
+		i++;
+	}
+	return min;
 }

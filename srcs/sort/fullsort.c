@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   fullsort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 12:12:19 by jyolando          #+#    #+#             */
-/*   Updated: 2021/09/08 12:17:56 by jyolando         ###   ########.fr       */
+/*   Created: 2022/02/02 10:29:45 by jyolando          #+#    #+#             */
+/*   Updated: 2022/02/07 12:41:13 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *nlist)
+void	full_sort(t_stack *a, t_stack *b)
 {
-	nlist->next = *lst;
-	*lst = nlist;
+	int *sorted_arr;
+
+	sorted_arr = ft_insertion_sort(*a);
+
+	int i = 0;
+	while (i < a->cur_size)
+	{
+		printf("%d | ", sorted_arr[i++]);
+	}
 }

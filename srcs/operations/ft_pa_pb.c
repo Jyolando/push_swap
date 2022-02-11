@@ -24,7 +24,6 @@ static void ft_move_top_array(t_stack *src, int size)
 	int	temp;
 	int temp_sec;
 	int flag = 0;
-
 	while (size--)
 	{
 		if (flag)
