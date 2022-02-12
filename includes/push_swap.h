@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/07 12:41:01 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/13 00:50:02 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_info
 typedef struct s_stack
 {
 	int	*tab;
+	int *markup;
 	int	cur_size;
 	int	max_size;
 	t_info info;

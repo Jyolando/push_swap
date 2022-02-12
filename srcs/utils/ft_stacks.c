@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:41:01 by                   #+#    #+#             */
-/*   Updated: 2022/01/31 18:43:11 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/13 01:02:18 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int ft_gen_a(t_stack *a, int *arr, int size)
 
 	i = -1;
 	a->tab = (int *) malloc(sizeof(int) * size);
+	a->markup = (int *)malloc(sizeof(int) * size);
 	if (a->tab == NULL)
 		return (0);
 	while (i++ < size)

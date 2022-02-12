@@ -39,10 +39,11 @@ int *ft_insertion_sort(t_stack a)
 		if (arr[i] < arr[i - 1])
 		{
 			j = i;
-			while(arr[j] < arr[j - 1] && j + 1 > 0)
+			while(arr[j] < arr[j - 1] && j > 0)
 			{
 				swap(&arr[j], &arr[j - 1]);
-				j--;
+				if (j - 1 > 0)
+					j--;
 			}
 		}
 		i++;
