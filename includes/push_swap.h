@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/13 00:50:02 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/13 16:04:33 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,14 @@ void	ft_rotate(t_stack *src, int size, int same);
 void	ft_rotate_same(t_stack *a, t_stack *b);
 void	ft_reverse_rotate(t_stack *src, int size, int same);
 void	ft_reverse_rotate_same(t_stack *a, t_stack *b);
-int *ft_insertion_sort(t_stack a);
+int		*ft_insertion_sort(t_stack a);
 void	full_sort(t_stack *a, t_stack *b);
+void	pushToB(t_stack *a, t_stack *b, int *arr);
+void	free_stack(t_stack *s);
+void	update_markup(t_stack *a, int m_head);
+int		find_index(int num, int *arr, int size);
+
+t_stack	copy_stack(t_stack s);
 
 void	ft_init_structs(t_stack *a, t_stack *b, int size);
 
@@ -57,5 +63,6 @@ int	ft_create_stacks(t_stack *a, t_stack *b, t_stack init);
 int	ft_arr_sorted(t_stack stack);
 int	ft_arr_ready(t_stack stack);
 int find_min(t_stack s);
+int	*copy_sa_arr(int *tab, int size);
 
 #endif

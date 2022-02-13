@@ -50,6 +50,6 @@ void ft_push(t_stack *src, t_stack *dst)
 	src->cur_size--;
 	if (dst->info.stack_name == 'a')
 		ft_putstr("pa\n");
-	else
+	else if (dst->info.stack_name == 'b')
 		ft_putstr("pb\n");
 }
