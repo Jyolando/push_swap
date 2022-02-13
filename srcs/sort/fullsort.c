@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:29:45 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/13 15:58:28 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/13 22:44:40 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	full_sort(t_stack *a, t_stack *b)
 	printf("\n");
 
 	pushToB(a, b, sorted_arr);
+	pushToA(a, b, sorted_arr);
 }
 

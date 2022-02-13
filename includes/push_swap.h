@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/13 16:04:33 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/13 23:14:53 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ typedef struct s_info
 	int min;
 }				t_info;
 
+typedef struct s_directions
+{
+	char stack_name;
+	int	r;
+	int	rr;
+}				t_directions;
+
+typedef struct s_stack_dir
+{
+	t_directions a;
+	t_directions b;
+	int	b_index;
+}				t_stack_dir;
+
 typedef struct s_stack
 {
 	int	*tab;
@@ -34,6 +48,13 @@ typedef struct s_stack
 	int	max_size;
 	t_info info;
 }               t_stack;
+
+typedef struct s_stacks
+{
+	t_stack *a;
+	t_stack *b;
+}				t_stacks;
+
 
 void	ft_putstr(char *str);
 void	ft_error(void);
@@ -53,6 +74,7 @@ void	pushToB(t_stack *a, t_stack *b, int *arr);
 void	free_stack(t_stack *s);
 void	update_markup(t_stack *a, int m_head);
 int		find_index(int num, int *arr, int size);
+void pushToA(t_stack *a, t_stack *b, int *arr);
 
 t_stack	copy_stack(t_stack s);
 
