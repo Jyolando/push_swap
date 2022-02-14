@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/13 23:14:53 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/14 12:00:08 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 #include <stdio.h>
 
+#define R 1
+#define RR 0
 
 typedef struct s_info
 {
@@ -28,16 +30,16 @@ typedef struct s_info
 
 typedef struct s_directions
 {
-	char stack_name;
-	int	r;
-	int	rr;
+	int elem;
+	int dir;
+
 }				t_directions;
 
 typedef struct s_stack_dir
 {
 	t_directions a;
 	t_directions b;
-	int	b_index;
+	int summ;
 }				t_stack_dir;
 
 typedef struct s_stack
