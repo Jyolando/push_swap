@@ -33,6 +33,31 @@ int find_index_in_stack(t_stack *s, int num)
 	return (i);
 }
 
+void calculate_summ(t_stacks s, t_stack_dir *dir)
+{
+	if (find_index_in_stack(s.a, dir->a.elem) >= s.a->cur_size / 2)
+	{
+		dir->a.r_count = s.a->cur_size - find_index_in_stack(s.a, dir->a.elem);
+		dir->a.dir = 0;
+	}
+	else
+	{
+		dir->a.r_count = s.a->cur_size;
+		dir->a.dir = 1;
+	}
+	if (find_index_in_stack(s.b, dir->b.elem) >= s.b->cur_size / 2)
+	{
+		dir->b.r_count = s.b->cur_size - find_index_in_stack(s.b, dir->b.elem);
+		dir->b.dir = 0;
+	}
+	else
+	{
+		dir->b.r_count = s.b->cur_size;
+		dir->b.dir = 1;
+	}
+	dir->summ = dir->a.r_count + dir->b.r_count;
+}
+
 int calculate_directions(t_stack *s, int num)
 {
 	if (find_index_in_stack(s, num) >= s->cur_size / 2)
@@ -41,31 +66,32 @@ int calculate_directions(t_stack *s, int num)
 		return (find_index_in_stack(s, num));
 }
 
-int find_near(t_stack_dir *dir, t_stacks s, int *arr)
+void find_near(t_stack_dir *dir, t_stacks s, int *arr)
 {
 	int i;
 	int elem_i;
-	int temp_num;
-	int res_num;
 
 	i = 0;
-	temp_num = -1;
-	res_num = -1;
+	dir->a.elem = -1;
 	while (i < s.a->cur_size)
 	{
-		elem_i = find_index(dir->b.elem, arr, s.b->cur_size);
-		if (elem_i == find_index(s.a->tab[i], arr, s.a->cur_size) + 1
-			|| elem_i == find_index(s.a->tab[i], arr, s.a->cur_size) - 1)
+		elem_i = find_index(dir->b.elem, arr, s.a->max_size);
+		//!printf("index b_elem: %d - index a_elem: %d\n", elem_i, find_index(s.a->tab[i], arr, s.a->max_size));
+		//!printf("num a_elem: %d\n", s.a->tab[i]);
+		//printf("%d\n", elem_i);
+		if (elem_i == find_index(s.a->tab[i], arr, s.a->max_size) + 1
+			|| elem_i == find_index(s.a->tab[i], arr, s.a->max_size) - 1)
 		{
-			temp_num = find_index_in_stack(s.a, s.a->tab[i]);
-			if (res_num == -1)
-				temp_num = s.a->tab[i];
-			else if (calculate_directions(s.a, s.a->tab[i]) < calculate_directions(s.a, res_num))
-				res_num = s.a->tab[i];
+			//!printf("OK for num B_ELEM %d || for num A_ELEM %d\n", dir->b.elem, s.a->tab[i]);
+			if (dir->a.elem == -1)
+				dir->a.elem = s.a->tab[i];
+			else if (calculate_directions(s.a, s.a->tab[i]) < calculate_directions(s.a, dir->a.elem))
+			{
+				dir->a.elem = s.a->tab[i];
+			}
 		}
 		i++;
 	}
-	return (res_num);
 }
 
 void init_dir(t_stack_dir *dir, int f_elem, int s_elem)
@@ -85,11 +111,16 @@ t_stack_dir search_optimal(t_stacks s, int *arr)
 	i = 0;
 	while (i < s.b->cur_size)
 	{
-		init_dir(&n_dir, s.a->tab[i], s.b->tab[j]);
-		printf("res for %d - %d\n",n_dir.b.elem,  find_near(&n_dir, s, arr));
-		//printf("1\n");
-		// if (n_dir.summ < res_dir.summ || res_dir.summ == -1)
-		// 	res_dir = n_dir;
+		init_dir(&n_dir, s.a->tab[i], s.b->tab[i]);
+		//!printf("Cur b elem: %d\n", n_dir.b.elem);
+		find_near(&n_dir, s, arr);
+		//!printf("res for %d - %d\n\n", n_dir.b.elem, n_dir.a.elem);
+		if (n_dir.a.elem != -1)
+		{
+			calculate_summ(s, &n_dir);
+			if (res_dir.summ == -1 || n_dir.summ < res_dir.summ)
+				res_dir = n_dir;
+		}
 		i++;
 	}
 	return (res_dir);
@@ -112,7 +143,7 @@ static void move_b(t_stacks s, t_stack_dir dir)
 				ft_reverse_rotate(s.a, s.a->cur_size, 0);
 			if (s.b->tab[0] != dir.b.elem && dir.b.dir == 1)
 				ft_rotate(s.b, s.b->cur_size, 0);
-			else if (s.b->tab[0] != dir.b.elem && dir.b.elem == 0)
+			else if (s.b->tab[0] != dir.b.elem && dir.b.dir == 0)
 				ft_reverse_rotate(s.b, s.b->cur_size, 0);
 		}
 	}
@@ -130,8 +161,24 @@ void pushToA(t_stack *a, t_stack *b, int *arr)
 	t_stacks		s;
 
 	//init_dir(&a_dir, &b_dir);
-	init_stacks(a, b, &s);
-	dir = search_optimal(s, arr);
+	while (b->cur_size)
+	{
+		init_stacks(a, b, &s);
+		dir = search_optimal(s, arr);
+		move_b(s, dir);
+		ft_push(b, a);
+	}
+	if (a->tab[0] != arr[0])
+	{
+		if (find_index_in_stack(a, arr[0]) >= a->cur_size / 2)
+			while (a->tab[0] != arr[0])
+				ft_reverse_rotate(a, a->cur_size, 0);
+		else
+			while (a->tab[0] != arr[0])
+				ft_rotate(a, a->cur_size, 0);
+	}
+
+
 	// dir.a.elem = 2;
 	// dir.a.dir = 1;
 	// dir.b.elem = 3;

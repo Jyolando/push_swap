@@ -119,21 +119,21 @@ void	pushToB(t_stack *a, t_stack *b, int *arr)
 		update_markup(a, m_head);
 	}
 
-	int i = 0;
-	printf("A: ");
-	while (i < a->cur_size)
-	{
-		printf("| %d - [ %d ] ", a->tab[i], find_index(a->tab[i], arr, a->max_size));
-		i++;
-	}
-	printf("\n");
-	i = 0;
-	printf("B: ");
-	while (i < b->cur_size)
-	{
-		printf("| %d - [ %d ] ", b->tab[i], find_index(b->tab[i], arr, a->max_size));
-		i++;
-	}
-	printf("\n");
+	// int i = 0;
+	// printf("A: ");
+	// while (i < a->cur_size)
+	// {
+	// 	printf("| %d - [ %d ] ", a->tab[i], find_index(a->tab[i], arr, a->max_size));
+	// 	i++;
+	// }
+	// printf("\n");
+	// i = 0;
+	// printf("B: ");
+	// while (i < b->cur_size)
+	// {
+	// 	printf("| %d - [ %d ] ", b->tab[i], find_index(b->tab[i], arr, a->max_size));
+	// 	i++;
+	// }
+	// printf("\n");
 
 }

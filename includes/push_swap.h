@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/14 12:00:08 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/14 20:11:07 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_directions
 {
 	int elem;
 	int dir;
-
+	int r_count;
 }				t_directions;
 
 typedef struct s_stack_dir
