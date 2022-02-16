@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/14 20:11:07 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/16 11:31:37 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 #include <stdio.h>
 
-#define R 1
-#define RR 0
+#define R 0
+#define RR 1
 
 typedef struct s_info
 {
@@ -72,11 +72,12 @@ void	ft_reverse_rotate(t_stack *src, int size, int same);
 void	ft_reverse_rotate_same(t_stack *a, t_stack *b);
 int		*ft_insertion_sort(t_stack a);
 void	full_sort(t_stack *a, t_stack *b);
-void	pushToB(t_stack *a, t_stack *b, int *arr);
+void pushToB(t_stack *a, t_stack *b, int *arr, int sort_size);
 void	free_stack(t_stack *s);
 void	update_markup(t_stack *a, int m_head);
 int		find_index(int num, int *arr, int size);
-void pushToA(t_stack *a, t_stack *b, int *arr);
+void pushToA(t_stack *a, t_stack *b);
+int max_index_in_stack(t_stack *s, int *arr);
 
 t_stack	copy_stack(t_stack s);
 

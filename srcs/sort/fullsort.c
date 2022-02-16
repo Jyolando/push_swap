@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 10:29:45 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/14 20:58:35 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/16 11:32:10 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ void	full_sort(t_stack *a, t_stack *b)
 	// }
 	//printf("\n");
 
-	pushToB(a, b, sorted_arr);
-	pushToA(a, b, sorted_arr);
+	if (a->max_size <= 101)
+		pushToB(a, b, sorted_arr, 15);
+	else
+		pushToB(a, b, sorted_arr, 30);
+	pushToA(a, b);
+	//printf("%d\n", max_index_in_stack(b, sorted_arr));
+	//pushToA(a, b, sorted_arr);
 }
 
