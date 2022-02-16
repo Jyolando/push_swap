@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 11:31:34 by                   #+#    #+#             */
-/*   Updated: 2022/01/19 00:05:49 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:09:43 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 void	ft_reverse_rotate(t_stack *src, int size, int same)
 {
 	int	temp;
-	int tempSec;
-	int i;
+	int	temp_sec;
+	int	i;
 
 	temp = src->tab[size - 1];
 	i = 0;
 	while (i < size)
 	{
-		tempSec = src->tab[i];
+		temp_sec = src->tab[i];
 		src->tab[i] = temp;
-		temp = tempSec;
+		temp = temp_sec;
 		i++;
 	}
 	if (src->info.stack_name == 'a' && same == 0)

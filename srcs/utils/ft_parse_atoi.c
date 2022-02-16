@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_atoi.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  <>                                        +#+  +:+       +#+        */
+/*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:54:16 by                   #+#    #+#             */
-/*   Updated: 2022/01/14 22:05:29 by                  ###   ########.fr       */
+/*   Updated: 2022/02/16 11:52:05 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_parse_atoi(const char *s, int *res)
 {
-	int i;
-	int neg;
-	long temp;
+	int		i;
+	int		neg;
+	long	temp;
 
 	i = 0;
 	neg = 1;

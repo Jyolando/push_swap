@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minisort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/16 12:04:16 by jyolando          #+#    #+#             */
+/*   Updated: 2022/02/16 12:05:02 by jyolando         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
-static void sort_three(t_stack *s)
+static void	sort_three(t_stack *s)
 {
-
 	if (ft_arr_sorted(*s))
 		return ;
 	if (s->cur_size == 2)
@@ -12,7 +23,8 @@ static void sort_three(t_stack *s)
 	}
 	if (s->tab[0] < s->tab[1] && s->tab[0] > s->tab[2] && s->tab[1] > s->tab[2])
 		ft_reverse_rotate(s, s->cur_size, 0);
-	else if (s->tab[0] > s->tab[1] && s->tab[0] > s->tab[2] && s->tab[1] < s->tab[2])
+	else if (s->tab[0] > s->tab[1] && s->tab[0] > s->tab[2]
+		&& s->tab[1] < s->tab[2])
 		ft_rotate(s, s->cur_size, 0);
 	else
 		ft_swap(s, 0);
@@ -22,10 +34,10 @@ static void sort_three(t_stack *s)
 		ft_reverse_rotate(s, s->cur_size, 0);
 }
 
-static void merge(t_stack *a, t_stack *b)
+static void	merge(t_stack *a, t_stack *b)
 {
-	int max_a;
-	int min;
+	int	max_a;
+	int	min;
 
 	max_a = a->tab[2];
 	min = a->info.min;

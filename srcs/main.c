@@ -6,13 +6,13 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:22:24 by                   #+#    #+#             */
-/*   Updated: 2022/02/02 10:41:43 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:11:49 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int ft_unique(int *arr, int size)
+static int	ft_unique(int *arr, int size)
 {
 	int	i;
 	int	j;
@@ -29,10 +29,10 @@ static int ft_unique(int *arr, int size)
 	return (1);
 }
 
-int *ft_parse_args(char **v, int size)
+static int	*ft_parse_args(char **v, int size)
 {
 	int	*arr;
-	int i;
+	int	i;
 
 	i = 0;
 	arr = (int *)malloc(sizeof(int) * size);
@@ -47,7 +47,7 @@ int *ft_parse_args(char **v, int size)
 	return (arr);
 }
 
-int	ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
+static int	ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
 {
 	init->tab = ft_parse_args(v, init->max_size);
 	if (!init->tab || !ft_unique(init->tab, init->max_size))
@@ -60,14 +60,11 @@ int	ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
 	return (1);
 }
 
-#include <stdio.h>
-
-int main(int c, char **v)
+int	main(int c, char **v)
 {
-	t_stack a;
-	t_stack b;
-	t_stack init;
-
+	t_stack	a;
+	t_stack	b;
+	t_stack	init;
 
 	init.max_size = c - 1;
 	if (init.max_size < 1)
@@ -76,16 +73,12 @@ int main(int c, char **v)
 		return (0);
 	if (ft_arr_sorted(a) && ft_arr_ready(a))
 		return (0);
-	else if (a.cur_size <= 6) {
+	else if (a.cur_size <= 6)
+	{
 		a.info.min = find_min(a);
 		minisort(&a, &b);
-	} else {
-		full_sort(&a, &b);
 	}
-	// int i = 0;
-
-	// while (i < a.max_size)
-	// 	printf("%d | ", a.tab[i++]);
-
+	else
+		full_sort(&a, &b);
 	return (0);
 }

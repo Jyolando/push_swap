@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:58:23 by                   #+#    #+#             */
-/*   Updated: 2022/01/31 17:57:19 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:11:29 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_rotate(t_stack *src, int size, int same)
 {
-	int temp;
-	int temp_sec;
-	int temp_th;
-	int flag;
+	int	temp;
+	int	temp_sec;
+	int	temp_th;
+	int	flag;
 
 	flag = 0;
 	temp_th = src->tab[0];
