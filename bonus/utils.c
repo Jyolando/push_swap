@@ -19,7 +19,7 @@ void	check_stacks(char *line, t_stack *a, t_stack *b)
 	else if (!(ft_strcmp(line, "sb\n")))
 		ft_swap(b, 0);
 	else if (!(ft_strcmp(line, "ss\n")))
-		ft_swap_same(a, b);
+		ft_swap_same(a, b, 1);
 	else if (!(ft_strcmp(line, "pa\n")))
 		ft_push(b, a);
 	else if (!(ft_strcmp(line, "pb\n")))
@@ -29,13 +29,13 @@ void	check_stacks(char *line, t_stack *a, t_stack *b)
 	else if (!(ft_strcmp(line, "rb\n")))
 		ft_rotate(b, b->cur_size, 0);
 	else if (!(ft_strcmp(line, "rr\n")))
-		ft_rotate_same(a, b);
+		ft_rotate_same(a, b, 1);
 	else if (!(ft_strcmp(line, "rra\n")))
 		ft_reverse_rotate(a, a->cur_size, 0);
 	else if (!(ft_strcmp(line, "rrb\n")))
 		ft_reverse_rotate(b, b->cur_size, 0);
 	else if (!(ft_strcmp(line, "rrr\n")))
-		ft_reverse_rotate_same(a, b);
+		ft_reverse_rotate_same(a, b, 1);
 	else
 		ft_error();
 }

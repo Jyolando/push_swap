@@ -38,12 +38,12 @@ typedef struct s_stack
 void	ft_putstr(char *str);
 void	ft_error(void);
 void	ft_swap(t_stack *src, int same);
-void	ft_swap_same(t_stack *a, t_stack *b);
+void	ft_swap_same(t_stack *a, t_stack *b, int check);
 void	ft_push(t_stack *src, t_stack *dst);
 void	ft_rotate(t_stack *src, int size, int same);
-void	ft_rotate_same(t_stack *a, t_stack *b);
+void	ft_rotate_same(t_stack *a, t_stack *b, int check);
 void	ft_reverse_rotate(t_stack *src, int size, int same);
-void	ft_reverse_rotate_same(t_stack *a, t_stack *b);
+void	ft_reverse_rotate_same(t_stack *a, t_stack *b, int check);
 void	minisort(t_stack *a, t_stack *b);
 void	full_sort(t_stack *a, t_stack *b);
 void	push_to_b(t_stack *a, t_stack *b, int sort_size);

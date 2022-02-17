@@ -33,9 +33,10 @@ void	ft_reverse_rotate(t_stack *src, int size, int same)
 		ft_putstr("rrb\n");
 }
 
-void	ft_reverse_rotate_same(t_stack *a, t_stack *b)
+void	ft_reverse_rotate_same(t_stack *a, t_stack *b, int check)
 {
 	ft_reverse_rotate(a, a->cur_size, 1);
 	ft_reverse_rotate(b, b->cur_size, 1);
-	ft_putstr("rrr\n");
+	if (!check)
+		ft_putstr("rrr\n");
 }

@@ -67,8 +67,6 @@ int	main(int c, char **v)
 	t_stack	init;
 
 	init.max_size = c - 1;
-	if (init.max_size < 1)
-		ft_error();
 	if (!ft_check_args(&a, &b, &init, v))
 		return (0);
 	if (ft_arr_sorted(a) && ft_arr_ready(a))

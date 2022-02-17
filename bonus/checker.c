@@ -89,7 +89,7 @@ int	main(int c, char **v)
 
 	init.max_size = c - 1;
 	if (init.max_size < 1)
-		ft_error();
+		return (0);
 	if (!check_args(&a, &b, &init, v))
 		return (0);
 	parse(&a, &b);

@@ -41,9 +41,10 @@ void	ft_rotate(t_stack *src, int size, int same)
 		ft_putstr("rb\n");
 }
 
-void	ft_rotate_same(t_stack *a, t_stack *b)
+void	ft_rotate_same(t_stack *a, t_stack *b, int check)
 {
 	ft_rotate(a, a->cur_size, 1);
 	ft_rotate(b, b->cur_size, 1);
-	ft_putstr("rr\n");
+	if (!check)
+		ft_putstr("rr\n");
 }

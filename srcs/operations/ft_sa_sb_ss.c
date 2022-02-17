@@ -27,9 +27,10 @@ void	ft_swap(t_stack *src, int same)
 		ft_putstr("sb\n");
 }
 
-void	ft_swap_same(t_stack *a, t_stack *b)
+void	ft_swap_same(t_stack *a, t_stack *b, int check)
 {
 	ft_swap(a, 1);
 	ft_swap(b, 1);
-	ft_putstr("ss\n");
+	if (!check)
+		ft_putstr("ss\n");
 }
