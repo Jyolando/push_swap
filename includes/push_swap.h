@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/16 12:29:38 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/17 11:33:30 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@ void	push_to_a(t_stack *a, t_stack *b);
 
 int		ft_parse_atoi(const char *s, int *res);
 int		ft_arr_sorted(t_stack stack);
-int		ft_create_stacks(t_stack *a, t_stack *b, t_stack init);
+int		ft_create_stacks(t_stack *a, t_stack *b, t_stack init, int check);
+int		ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v);
+int		ft_checker_args(t_stack *a, t_stack *b, t_stack *init, char **v);
 int		ft_arr_ready(t_stack stack);
 int		find_min(t_stack s);
+int		ft_unique(int *arr, int size);
 
 #endif

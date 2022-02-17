@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 12:02:54 by                   #+#    #+#             */
-/*   Updated: 2022/02/16 12:18:44 by jyolando         ###   ########.fr       */
+/*   Created: 2022/02/17 09:57:45 by jyolando          #+#    #+#             */
+/*   Updated: 2022/02/17 11:33:18 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
-void	ft_init_structs(t_stack *a, t_stack *b, int size)
-{
-	int	i;
+# include "../../includes/push_swap.h"
+# include "../../libs/get_next_line/get_next_line.h"
 
-	a->tab = (int *)malloc(sizeof(int) * size);
-	b->tab = (int *)malloc(sizeof(int) * size);
-	a->max_size = size;
-	b->max_size = size;
-	a->cur_size = size;
-	b->cur_size = 0;
-	a->info.stack_name = 'a';
-	b->info.stack_name = 'b';
-	i = 0;
-	while (i < size)
-	{
-		a->tab[i] = 0;
-		b->tab[i] = 0;
-		i++;
-	}
-}
+void	parse(t_stack *a, t_stack *b);
+int		ft_strcmp(const char *s1, const char *s2);
+
+#endif

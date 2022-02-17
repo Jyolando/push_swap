@@ -1,16 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 19:22:24 by                   #+#    #+#             */
-/*   Updated: 2022/02/17 10:12:22 by jyolando         ###   ########.fr       */
+/*   Created: 2022/02/16 13:17:16 by jyolando          #+#    #+#             */
+/*   Updated: 2022/02/17 11:32:34 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "./includes/push_swap_bonus.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned char	*z1;
+	unsigned char	*z2;
+
+	z1 = (unsigned char *)s1;
+	z2 = (unsigned char *)s2;
+	if (*z1 == '\0')
+		return (-(*z2));
+	if (*z2 == '\0')
+		return (*z1);
+	while (*z1 != '\0' || *z2 != '\0')
+	{
+		if (*z1 != *z2)
+			return (*z1 - *z2);
+		z1++;
+		z2++;
+	}
+	return (0);
+}
 
 int	ft_unique(int *arr, int size)
 {
@@ -47,7 +68,7 @@ static int	*ft_parse_args(char **v, int size)
 	return (arr);
 }
 
-int	ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
+static int	check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
 {
 	init->tab = ft_parse_args(v, init->max_size);
 	if (!init->tab || !ft_unique(init->tab, init->max_size))
@@ -55,7 +76,7 @@ int	ft_check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
 		free(init->tab);
 		ft_error();
 	}
-	if (!ft_create_stacks(a, b, *init, 0))
+	if (!ft_create_stacks(a, b, *init, 1))
 		return (0);
 	return (1);
 }
@@ -69,16 +90,7 @@ int	main(int c, char **v)
 	init.max_size = c - 1;
 	if (init.max_size < 1)
 		ft_error();
-	if (!ft_check_args(&a, &b, &init, v))
+	if (!check_args(&a, &b, &init, v))
 		return (0);
-	if (ft_arr_sorted(a) && ft_arr_ready(a))
-		return (0);
-	else if (a.cur_size <= 6)
-	{
-		a.info.min = find_min(a);
-		minisort(&a, &b);
-	}
-	else
-		full_sort(&a, &b);
-	return (0);
+	parse(&a, &b);
 }
