@@ -12,25 +12,25 @@
 
 #include "../../../includes/push_swap.h"
 
-void	push_to_b(t_stack *a, t_stack *b, int sort_size)
+void	push_to_b(t_stack *a, t_stack *b, int sort_size, int *arr)
 {
 	int	l;
 
 	l = 0;
 	while (a->cur_size)
 	{
-		if (l > 1 && a->tab[0] <= l)
+		if (l > 1 && find_index(a->tab[0], arr, a->max_size) <= l)
 		{
 			ft_push(a, b);
 			ft_rotate(b, b->cur_size, 0);
 			l++;
 		}
-		else if (a->tab[0] <= l + sort_size)
+		else if (find_index(a->tab[0], arr, a->max_size) <= l + sort_size)
 		{
 			ft_push(a, b);
 			l++;
 		}
-		else if (a->tab[0] >= l)
+		else if (find_index(a->tab[0], arr, a->max_size) >= l)
 			ft_rotate(a, a->cur_size, 0);
 	}
 }

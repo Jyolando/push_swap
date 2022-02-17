@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   find_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 00:25:13 by                   #+#    #+#             */
-/*   Updated: 2022/02/18 00:28:37 by jyolando         ###   ########.fr       */
+/*   Created: 2022/02/18 00:18:23 by jyolando          #+#    #+#             */
+/*   Updated: 2022/02/18 00:18:25 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
-
-void	ft_putstr(char *str)
+int	find_index(int num, int *arr, int size)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		write(1, &str[i++], 1);
+	while (i < size)
+	{
+		if (num == arr[i])
+			return (i);
+		i++;
+	}
+	return (i);
 }

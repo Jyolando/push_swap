@@ -20,6 +20,7 @@ SRCS = srcs/main.c \
 		srcs/utils/print.c srcs/utils/ft_check_sorted.c \
 		srcs/utils/find_min.c srcs/sort/minisort.c srcs/sort/fullsort.c \
 		srcs/sort/utils/push_to_b.c srcs/sort/utils/push_to_a.c\
+		srcs/sort/sorted_stack.c srcs/sort/utils/find_index.c\
 		libs/Libft/ft_isdigit.c
 
 OBJ = ${SRCS:.c=.o}

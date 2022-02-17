@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:41:01 by                   #+#    #+#             */
-/*   Updated: 2022/02/17 11:19:20 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/18 01:08:16 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,21 @@ static int	ft_gen_b(t_stack *b, int size, int check)
 	return (1);
 }
 
-void	free_stack(t_stack *s)
+void	free_stacks(t_stack *a, t_stack *b)
 {
-	free(s->tab);
+	free(a->tab);
+	free(b->tab);
 }
 
-int	ft_create_stacks(t_stack *a, t_stack *b, t_stack init, int check)
+int	ft_create_stacks(t_stack *a, t_stack *b, t_stack *init, int check)
 {
-	if (!ft_gen_a(a, init.tab, init.max_size, check)
-		|| !ft_gen_b(b, init.max_size, check))
+	if (!ft_gen_a(a, init->tab, init->max_size, check)
+		|| !ft_gen_b(b, init->max_size, check))
+	{
+		free_stacks(a, b);
+		free(init->tab);
 		ft_error();
+	}
+	free(init->tab);
 	return (1);
 }

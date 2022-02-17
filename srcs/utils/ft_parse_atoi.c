@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:54:16 by                   #+#    #+#             */
-/*   Updated: 2022/02/16 11:52:05 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/18 01:10:51 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	ft_parse_atoi(const char *s, int *res)
 		if (s[i++] == '-')
 			neg = -1;
 	if (!ft_isdigit(s[i]))
+	{
 		return (0);
+	}
 	while (ft_isdigit(s[i]))
 	{
 		temp = temp * 10 + s[i] - 48;
