@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 00:06:33 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/17 11:45:52 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/17 11:47:21 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	{
 		if (*s1)
 			str[i] = *(s1)++;
-		els
+		else
 			str[i] = *(s2)++;
 		i++;
 	}
