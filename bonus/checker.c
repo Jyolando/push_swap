@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:17:16 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/20 12:00:22 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:25:04 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,6 @@ int	main(int c, char **v)
 	if (!check_args(&a, &b, &init, v))
 		return (0);
 	parse(&a, &b);
+	free(a.tab);
+	free(b.tab);
 }

@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 22:05:34 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/18 00:51:41 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:24:23 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libs/Libft/libft.h"
-# include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 # define R 0
 # define RR 1

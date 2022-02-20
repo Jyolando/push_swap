@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 19:27:33 by                   #+#    #+#             */
-/*   Updated: 2022/02/20 11:56:01 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:25:11 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ static void	ft_puterror(char *str)
 void	ft_error(void)
 {
 	ft_puterror("Error\n");
-	exit(0);
+	exit(1);
 }

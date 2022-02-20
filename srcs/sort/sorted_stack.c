@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 01:18:17 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/18 01:18:30 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:24:38 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	*ft_fill_arr(t_stack a)
 
 	i = 0;
 	arr = (int *)malloc(a.cur_size * sizeof(int));
+	if (!arr)
+		return (NULL);
 	while (i < a.cur_size)
 	{
 		arr[i] = a.tab[i];
