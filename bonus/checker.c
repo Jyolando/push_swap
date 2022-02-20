@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:17:16 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/17 11:32:34 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/20 12:00:22 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	check_args(t_stack *a, t_stack *b, t_stack *init, char **v)
 		free(init->tab);
 		ft_error();
 	}
-	if (!ft_create_stacks(a, b, *init, 1))
+	if (!ft_create_stacks(a, b, init, 1))
 		return (0);
 	return (1);
 }
