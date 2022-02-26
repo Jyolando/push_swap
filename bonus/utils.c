@@ -6,13 +6,20 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:41:01 by                   #+#    #+#             */
-/*   Updated: 2022/02/17 11:32:43 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/26 22:27:05 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap_bonus.h"
 
-void	check_stacks(char *line, t_stack *a, t_stack *b)
+static void	ft_free(t_stack *a, t_stack *b)
+{
+	free(a->tab);
+	free(b->tab);
+	ft_error();
+}
+
+static void	check_stacks(char *line, t_stack *a, t_stack *b)
 {
 	if (!(ft_strcmp(line, "sa\n")))
 		ft_swap(a, 0);
@@ -37,7 +44,7 @@ void	check_stacks(char *line, t_stack *a, t_stack *b)
 	else if (!(ft_strcmp(line, "rrr\n")))
 		ft_reverse_rotate_same(a, b, 1);
 	else
-		ft_error();
+		ft_free(a, b);
 }
 
 void	parse(t_stack *a, t_stack *b)

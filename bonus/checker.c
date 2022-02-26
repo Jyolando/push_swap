@@ -6,7 +6,7 @@
 /*   By: jyolando <jyolando@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:17:16 by jyolando          #+#    #+#             */
-/*   Updated: 2022/02/20 14:25:04 by jyolando         ###   ########.fr       */
+/*   Updated: 2022/02/26 22:39:47 by jyolando         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ static int	*ft_parse_args(char **v, int size)
 	while (i < size)
 	{
 		if (!ft_parse_atoi(v[i + 1], &arr[i]))
+		{
+			free(arr);
 			return (NULL);
+		}
 		i++;
 	}
 	return (arr);
